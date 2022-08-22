@@ -1,4 +1,0 @@
--r common.txt
-
-transifex-client==0.14.4
-watchdog==2.1.6
