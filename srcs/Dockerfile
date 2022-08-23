@@ -36,7 +36,7 @@ COPY ./requirements ./requirements
 RUN pip install -r ./requirements/dev.txt
 RUN pip install -r ./requirements/tests.txt
 RUN pip install tox
-RUN npm install
+RUN npm install bower
 
 # copy docker-entrypoint.sh
 COPY ./docker-entrypoint.sh ./docker-entrypoint.sh
