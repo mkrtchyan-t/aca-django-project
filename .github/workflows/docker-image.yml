@@ -18,5 +18,5 @@ jobs:
     - name: Build the Docker image
       working-directory: ./srcs
       run: |
-        docker-compose build .
+        docker-compose build
         docker-compose up --tag my-image-name:$(date +%s)
