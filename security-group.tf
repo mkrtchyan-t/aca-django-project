@@ -17,6 +17,15 @@ resource "aws_security_group_rule" "public-in-http" {
 	security_group_id = aws_security_group.public.id
 }
 
+resource "aws_security_group_rule" "public-http" {
+	type = "ingress"
+	from_port = 8081
+	to_port = 8081
+	protocol = "tcp"
+	cidr_blocks = ["0.0.0.0/0"]
+	security_group_id = aws_security_group.public.id
+}
+
 resource "aws_security_group_rule" "public-in-ssh" {
 	type = "ingress"
 	from_port = 22

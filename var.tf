@@ -34,7 +34,7 @@ variable "ssh-location" {
 }
 
 variable "instance_type" {
-	default     = "t2.micro"
+	default     = "t2.large"
 }
 
 variable key_name {
