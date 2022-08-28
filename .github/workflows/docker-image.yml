@@ -29,6 +29,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
+        file: ./Dockerfile
         push: true
         tags: tmkrtchyan/aca:latest, tmkrtchyan/aca:${{ github.run_number }}
              
