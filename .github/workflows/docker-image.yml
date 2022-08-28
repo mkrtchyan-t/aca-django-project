@@ -30,7 +30,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build docker image
       # uses: docker/build-push-action@v3
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file ./srcs/Dockerfile --tag my-image-name:$(date +%s)
     - name:  Push to DockerHub
       run: docker push ${{ secrets.DOCKERHUB_LOGIN }}/tmkrtchyan
 
