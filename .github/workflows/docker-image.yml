@@ -25,6 +25,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_LOGIN }}
         password: ${{ secrets.DOCKERHUB_PASS }}
+        repository: tmkrtchyan/aca
     - name: Build and push to Docker Hub
       uses: docker/build-push-action@v2
       with:
