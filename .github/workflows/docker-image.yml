@@ -31,5 +31,6 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: tmkrtchyan/aca:latest, tmkrtchyan/aca:${{ github.run_number }}
+        repository: tmkrtchyan/aca
+        tags: latest, ${{ github.run_number }}
              
