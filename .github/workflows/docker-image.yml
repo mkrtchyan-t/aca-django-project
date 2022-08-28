@@ -21,7 +21,7 @@ jobs:
         docker-compose build
         docker-compose up --tag my-image-name:$(date +%s)
     - name: Publish to Docker Hub
-      uses: docker/build-push-action@v1
+      uses: docker/build-push-action@v2
       with:
         username: ${{ secrets.DOCKERHUB_LOGIN }}
         password: ${{ secrets.DOCKERHUB_PASS }}
