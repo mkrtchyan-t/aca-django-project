@@ -21,7 +21,6 @@ jobs:
     #     docker-compose build
     #     docker-compose up --tag my-image-name:$(date +%s)       
     - name: Login to DockerHub
-      # uses: docker/login-action@v2
       env:
         DOCKER_USER: ${{ secrets.DOCKERHUB_LOGIN }}
         DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASS }}
@@ -33,11 +32,3 @@ jobs:
         context: ./srcs
         push: true
         tags: tmkrtchyan/app:latest
-
-      # with:
-      #   context: ./srcs
-      #   file: ./srcs/Dockerfile
-      #   push: true
-      #   repository: tmkrtchyan/aca
-      #   tags: latest, ${{ github.run_number }}
-     
