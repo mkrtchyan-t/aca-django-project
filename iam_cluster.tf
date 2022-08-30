@@ -1,5 +1,5 @@
 resource "aws_iam_role" "eks" {
-  name = "django-${var.cluster}"
+  name = var.cluster
 
   assume_role_policy = <<POLICY
 {
