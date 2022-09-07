@@ -26,3 +26,11 @@ kubectl get svc -o wide
 http://<CLB-DNS-NAME>
 http://<NLB-DNS-NAME>
 
+
+Destroy order :
+    1.nlb-basic-terraform-manifests
+    2.externaldns-install-terraform-manifests
+    3.lbc-install-terraform-manifests
+0   4.ekscluster-terraform-manifests
+   
+

@@ -6,7 +6,7 @@ resource "kubernetes_service_v1" "myapp3_nlb_service" {
       # Traffic Routing
       "service.beta.kubernetes.io/aws-load-balancer-name"            = "basic-lbc-network-lb"
       "service.beta.kubernetes.io/aws-load-balancer-type"            = "external"
-      "service.beta.kubernetes.io/aws-load-balancer-nlb-target-type" = "instance" # specifies the target type to configure for NLB. You can choose between instance and ip
+      "service.beta.kubernetes.io/aws-load-balancer-nlb-target-type" = "instance" # specifies the target type to configure for NLB. instance and ip
       
 
       # Health Check Settings
