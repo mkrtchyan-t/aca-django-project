@@ -1,17 +1,58 @@
+# # # Terraform Settings Block
+# # terraform {
+# #   required_version = "~> 1.2"
+# #   required_providers {
+# #     aws = {
+# #       source  = "hashicorp/aws"
+# #       version = "~> 4.29"
+# #     }
+# #     kubernetes = {
+# #       source  = "hashicorp/kubernetes"
+# #       version = "~> 2.13"
+# #     }
+# #   }
+
+# # }
+
+# # # Terraform Provider Block
+# # provider "aws" {
+# #   region = var.aws_region
+# # }
+# # Terraform Settings Block
+# terraform {
+#   required_version = ">= 1.0.0"
+#   required_providers {
+#     aws = {
+#       source = "hashicorp/aws"
+#       version = "~> 4.14"
+#      }
+#     kubernetes = {
+#       source = "hashicorp/kubernetes"
+#       version = "~> 2.11"
+#     }      
+#   }
+ 
+# }
+
+# # Terraform Provider Block
+# provider "aws" {
+#   region = var.aws_region
+# }
+
 # Terraform Settings Block
 terraform {
-  required_version = "~> 1.2"
+  required_version = ">= 1.0.0"
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.29"
-    }
+      source = "hashicorp/aws"
+      version = "~> 4.14"
+     }
     kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "~> 2.13"
-    }
+      source = "hashicorp/kubernetes"
+      version = "~> 2.11"
+    }      
   }
-
+  
 }
 
 # Terraform Provider Block
