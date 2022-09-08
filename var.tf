@@ -18,25 +18,20 @@ variable "cidr" {
   default     = "10.0.0.0/16"
 }
 
-variable "vpc-cidr" {
-	default = "10.0.0.0/16"
-	description = "VPC CIDR BLOCK"
-}
-
 variable "public-subnet" {
-	default = "10.0.0.0/24"
-	description = "public-subnet"
+  default     = "10.0.0.0/24"
+  description = "public-subnet"
 }
 
 variable "ssh-location" {
-	default = "0.0.0.0/0"
-	description = "SSH variable"
+  default     = "0.0.0.0/0"
+  description = "SSH variable"
 }
 
 variable "instance_type" {
-	default     = "t2.micro"
+  default = "t2.large"
 }
 
-variable key_name {
-	default     = "aca-django"
+variable "key_name" {
+  default = "aca-django"
 }

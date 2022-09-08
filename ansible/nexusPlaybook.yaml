@@ -1,0 +1,70 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Update APT package manager repositories cache
+      apt:
+        update_cache: yes
+    - name: Install Java using Ansible
+      apt:
+        name: openjdk-8-jdk
+        state: present
+    - name: Download zsh installer
+      get_url: 
+        url: https://download.sonatype.com/nexus/3/nexus-3.38.1-01-unix.tar.gz
+        dest: /opt
+    - name: Unzip the file
+      unarchive:
+        src: /opt/nexus-3.38.1-01-unix.tar.gz
+        dest: /opt
+        remote_src: yes
+    - name: Move file
+      command: mv /opt/nexus-3.38.1-01 /opt/nexus
+    - name: Add nexus user 
+      user:
+        name: nexus
+        home: /opt
+    - name: add NOPASSWD
+      lineinfile:
+        dest: /etc/sudoers
+        line: 'nexus All=(ALL) NOPASSWD: All'
+        create: true
+    - name: Changing the permissions	/opt/sonatype-work
+      file:
+        path: /opt/sonatype-work
+        state: directory
+        owner: nexus
+        group: nexus
+        recurse: yes
+    - name: Changing the permissions	/opt/nexus
+      file:
+        path: /opt/nexus
+        state: directory
+        owner: nexus
+        group: nexus
+        recurse: yes
+    - name: add run user
+      lineinfile:
+        dest: /opt/nexus/bin/nexus.rc
+        line: run_as_user=nexus
+        create: true
+    - name: Run Nexus as a service using Systemd
+      lineinfile:
+          dest: /etc/systemd/system/nexus.service
+          line: |
+                [Unit]
+                Description=nexus service
+                After=network.target
+
+                [Service]
+                Type=forking
+                LimitNOFILE=65536
+                ExecStart=/opt/nexus/bin/nexus start
+                ExecStop=/opt/nexus/bin/nexus stop
+                User=nexus
+                Restart=on-abort
+
+                [Install]
+                WantedBy=multi-user.target
+          create: true

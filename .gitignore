@@ -9,6 +9,12 @@
 # Crash log files
 crash.log
 
+#ec2 key
+*.pem
+
+# hosts file (changes on every build)
+ansible/hosts.ini
+
 # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
 # .tfvars files are managed as part of configuration and so should be included in
 # version control.
