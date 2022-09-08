@@ -24,7 +24,7 @@ resource "aws_iam_role" "eks_developer_role" {
       Version = "2012-10-17"
       Statement = [
         {
-          Action   = [
+          Action = [
             "iam:ListRoles",
             "ssm:GetParameter",
             "eks:DescribeNodegroup",
@@ -43,7 +43,7 @@ resource "aws_iam_role" "eks_developer_role" {
         },
       ]
     })
-  }    
+  }
 
   tags = {
     tag-key = "${local.name}-eks-developer-role"
@@ -51,7 +51,7 @@ resource "aws_iam_role" "eks_developer_role" {
 }
 
 /*
-## ENABLE DURING STEP-24 of the DEMO ## 
+
 # Associate IAM Policy to IAM Role
 resource "aws_iam_role_policy_attachment" "eks-developrole-s3fullaccess" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"

@@ -1,0 +1,17 @@
+1.Run terraform init,terrafrom validate,apply -auto-approve in 01-ekscluster-terraform-manifets folder.
+
+2.Run the same commands in numbering order as they are named.
+
+3. Configure kubeconfig for kubectl
+    aws eks --region <region-code> update-kubeconfig --name <cluster_name>
+    
+4.  Verify Kubernetes Worker Nodes using kubectl
+        kubectl get nodes
+        kubectl get nodes -o wide
+
+5.  List Pods
+        kubectl get pods -o wide
+
+6.  List Services
+        kubectl get svc
+        kubectl get svc -o wide

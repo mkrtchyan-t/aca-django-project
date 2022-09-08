@@ -1,5 +1,5 @@
 /*
-# Create AWS EKS Node Group - Public
+# Creating AWS EKS Node Group - Public
 resource "aws_eks_node_group" "eks_ng_public" {
   cluster_name    = aws_eks_cluster.eks_cluster.name
 
@@ -15,7 +15,7 @@ resource "aws_eks_node_group" "eks_ng_public" {
   
   
   remote_access {
-    ec2_ssh_key = "eks-terraform-key"
+    ec2_ssh_key = "django-key-pair"
   }
 
   scaling_config {
@@ -30,7 +30,7 @@ resource "aws_eks_node_group" "eks_ng_public" {
     #max_unavailable_percentage = 50    # ANY ONE TO USE
   }
 
-  # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.
+  # Ensuring that IAM Role permissions are created before and deleted after EKS Node Group handling.
   # Otherwise, EKS will not be able to properly delete EC2 Instances and Elastic Network Interfaces.
   depends_on = [
     aws_iam_role_policy_attachment.eks-AmazonEKSWorkerNodePolicy,
