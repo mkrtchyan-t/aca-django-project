@@ -15,8 +15,20 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Build the Docker image
-      working-directory: ./srcs
+    # - name: Build the Docker image
+    #   working-directory: ./srcs
+    #   run: |
+    #     docker-compose build
+    #     docker-compose up --tag my-image-name:$(date +%s)       
+    - name: Login to DockerHub
+      env:
+        DOCKER_USER: ${{ secrets.DOCKERHUB_LOGIN }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASS }}
       run: |
-        docker-compose build
-        docker-compose up --tag my-image-name:$(date +%s)
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Build and push
+      uses: docker/build-push-action@v3
+      with:
+        context: ./srcs
+        push: true
+        tags: tmkrtchyan/app:latest
