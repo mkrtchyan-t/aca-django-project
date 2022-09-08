@@ -1,10 +1,9 @@
-# Terraform Remote State Datasource - Remote Backend AWS S3
+
+# Terraform Remote State Datasource
+
 data "terraform_remote_state" "eks" {
-  backend = "s3"
+  backend = "local"
   config = {
-    bucket = "terraform-on-aws-eks"
-    key    = "dev/eks-cluster/terraform.tfstate"
-    region = var.aws_region
+    path = "../01-ekscluster-terraform-manifests/terraform.tfstate"
   }
 }
-

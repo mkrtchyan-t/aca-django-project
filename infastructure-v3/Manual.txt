@@ -4,6 +4,8 @@
 
 3. Configure kubeconfig for kubectl
     aws eks --region <region-code> update-kubeconfig --name <cluster_name>
+    aws eks --region us-east-1 update-kubeconfig --name devops-dev-eksdemo1
+
     
 4.  Verify Kubernetes Worker Nodes using kubectl
         kubectl get nodes
@@ -15,3 +17,6 @@
 6.  List Services
         kubectl get svc
         kubectl get svc -o wide
+
+
+7. Run kubectl apply -f 05-django-app-nlb-deplyomnet/
