@@ -20,3 +20,27 @@
 
 
 7. Run kubectl apply -f 05-django-app-nlb-deplyomnet/
+
+
+8. Verifing Metrics Server
+
+# List Deployments
+kubectl -n kube-system get deploy
+
+# List Pods
+kubectl -n kube-system get pods
+
+# Verify Metrics Server Logs
+kubectl -n kube-system logs -f <POD-NAME>
+kubectl -n kube-system logs -f devops-dev-metrics-server-8dd75cb5d-zcsmx
+
+# Verifing if metrics for pods are displayed (After install of Metrics Server)
+kubectl top pods -n kube-system
+
+
+
+9.kubectl get hpa
+10.Running load test in new window and keep running command kubectl get pha
+        kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://app3-nginx-cip-service; done"
+
+11.Verify the pods count increased
