@@ -1,3 +1,5 @@
+[![Docker Image CI](https://github.com/mkrtchyan-t/aca-django-project/actions/workflows/docker-image.yml/badge.svg)](https://github.com/mkrtchyan-t/aca-django-project/actions/workflows/docker-image.yml)
+
 # Django project
 
 Infrastructure to deploy Djangoproject source code on a web page.
@@ -19,16 +21,68 @@ Infrastructure to deploy Djangoproject source code on a web page.
 
 * How/where to download your program
 * Any modifications needed to be made to files/folders
+ -->
+
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
+* Generate keypair 
+
+> Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+>
+> In the navigation pane, under Network & Security, choose Key Pairs.
+>
+> On the Key Pairs page, choose Create Key Pair.
+>
+> For Key pair name, type a name that is easy for you to remember, and then choose Create.
+>
+> When the console prompts you to save the private key file, save it in _**infrastructure/key-pair**_ directory.
+
+* Run `terraform init, terrafrom validate, terraform apply -auto-approve` in 01-ekscluster-terraform-manifets folder.
+
+* Run the same commands in numbering order as they are named.
+
+* Configure kubeconfig for kubectl
 ```
-code blocks for commands
+aws eks --region <region-code> update-kubeconfig --name <cluster_name>
+aws eks --region us-east-1 update-kubeconfig --name devops-dev-eksdemo1
+```
+* Verify Kubernetes Worker Nodes using kubectl
+```
+kubectl get nodes -o wide
 ```
 
-## Help
+* List Pods
+```
+kubectl get pods -o wide
+```
+
+* List Services
+```
+kubectl get svc -o wide
+```
+
+* Apply deployment and load balancer service configs
+```
+kubectl apply -f 05-django-app-nlb-deplyomnet/
+```
+
+* Verifing Metrics Server
+```
+kubectl -n kube-system get deploy
+kubectl -n kube-system get pods
+kubectl -n kube-system logs -f <POD-NAME>
+kubectl top pods -n kube-system
+```
+
+* Running load test in new window and keep running command `kubectl get hpa`
+```
+kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://app3-nginx-cip-service; done"
+```
+
+* Verify the pods count increased
+
+<!-- ## Help
 
 Any advise for common problems or issues.
 ```
