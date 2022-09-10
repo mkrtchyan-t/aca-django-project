@@ -6,7 +6,7 @@ Infrastructure to deploy Djangoproject source code on a web page.
 
 ## Infrastructure Diagram
 
-![project diagram drawio](https://user-images.githubusercontent.com/73377788/189150358-60f6c9b2-60a7-4da4-9d0d-f89a95309683.png)
+![project diagram drawio](https://github.com/mkrtchyan-t/aca-django-project/blob/dev/img/project%20diagram.drawio.png)
 
 ## Getting Started
 
