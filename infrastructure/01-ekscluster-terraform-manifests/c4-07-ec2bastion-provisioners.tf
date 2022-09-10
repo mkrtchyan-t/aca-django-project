@@ -7,12 +7,12 @@ resource "null_resource" "copy_ec2_keys" {
     host        = aws_eip.bastion_eip.public_ip
     user        = "ec2-user"
     password    = ""
-    private_key = file("private-key/django-key-pair.pem")
+    private_key = file("private-key/${var.instance_keypair}.pem")
   }
 
   ## File Provisioner: Copies the django-key-pair.pem file to /tmp/tdjango-key-pair.pem
   provisioner "file" {
-    source      = "private-key/django-key-pair.pem"
+    source      = "private-key/${var.instance_keypair}.pem"
     destination = "/tmp/django-key-pair.pem"
   }
   ## Remote Exec Provisioner:Fix the private key permissions on Bastion Host

@@ -14,7 +14,7 @@ resource "aws_eks_node_group" "eks_ng_private" {
 
 
   remote_access {
-    ec2_ssh_key = "django-key-pair"
+    ec2_ssh_key = var.instance_keypair
   }
 
   

@@ -8,6 +8,6 @@ spec:
     app: myapp1
   ports: 
     - name: http
-      port: 8000 # Service Port
-      targetPort: 8000 # Container Port
+      port: 80 # Service Port
+      targetPort: 80 # Container Port
 
