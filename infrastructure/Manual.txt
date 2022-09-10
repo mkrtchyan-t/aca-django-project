@@ -43,4 +43,8 @@ kubectl top pods -n kube-system
 10.Running load test in new window and keep running command kubectl get pha
         kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://app3-nginx-cip-service; done"
 
+10.1 run kubectl get hpa
+
 11.Verify the pods count increased
+
+12.Cloudwatch agent deployed as Daemonset and works in a node level

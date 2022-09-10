@@ -25,7 +25,7 @@ resource "kubernetes_deployment_v1" "myapp3" {
 
       spec {
         container {
-          image = "k8s.gcr.io/hpa-example"
+          image = "nginx:latest"
           name  = "app3-nginx"
           port {
             container_port = 80
