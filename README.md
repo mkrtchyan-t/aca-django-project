@@ -82,6 +82,8 @@ kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin
 
 * Verify the pods count increased
 
+* Cloudwatch agent deployed as Daemonset and works in a node level
+
 <!-- ## Help
 
 Any advise for common problems or issues.
