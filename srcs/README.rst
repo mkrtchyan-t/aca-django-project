@@ -343,7 +343,7 @@ the translations team will need to update Transifex as follows:
      git commit -m "Updated messages" locale/en/LC_MESSAGES/*
      git push
 
-Updating translations from Transifex
+Updating translations from Transifex x 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Anytime translations on Transifex have been updated, someone should update
