@@ -8,6 +8,10 @@ Infrastructure to deploy Djangoproject source code on a web page.
 
 ![project diagram drawio](https://github.com/mkrtchyan-t/aca-django-project/blob/dev/img/project%20diagram.drawio.png)
 
+![project](https://github.com/mkrtchyan-t/aca-django-project/blob/dev/img/photo_2022-09-08_11-28-25%20(2).jpg)
+![project](https://github.com/mkrtchyan-t/aca-django-project/blob/dev/img/photo_2022-09-08_11-28-25.jpg)
+![project](https://github.com/mkrtchyan-t/aca-django-project/blob/dev/img/photo_2022-09-08_11-28-26.jpg)
+
 ## Getting Started
 
 ### Dependencies
@@ -16,6 +20,12 @@ Infrastructure to deploy Djangoproject source code on a web page.
 * Terraform v1.2.8
 * Ansible 2.13
 * kubectl 1.22
+
+### Secrets
+
+* `DOCKERHUB_LOGIN`
+* `DOCKERHUB_PASS`
+* `DOCKERHUB_TOKEN`
 
 <!-- ### Installing
 
