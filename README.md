@@ -21,6 +21,12 @@ Infrastructure to deploy Djangoproject source code on a web page.
 * Ansible 2.13
 * kubectl 1.22
 
+### Secrets
+
+* `DOCKERHUB_LOGIN`
+* `DOCKERHUB_PASS`
+* `DOCKERHUB_TOKEN`
+
 <!-- ### Installing
 
 * How/where to download your program
