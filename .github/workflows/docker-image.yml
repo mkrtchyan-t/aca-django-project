@@ -32,6 +32,3 @@ jobs:
         context: ./srcs
         push: true
         tags: tmkrtchyan/app:latest
-    - name: apply changes to deployments
-      run: |
-        kubectl apply -f 05-django-app-nlb-deployment-YAML/
