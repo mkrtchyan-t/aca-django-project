@@ -48,3 +48,15 @@ kubectl top pods -n kube-system
 11.Verify the pods count increased
 
 12.Cloudwatch agent deployed as Daemonset and works in a node level
+
+
+13.Getting info in specifc namespaces
+
+-kubectl -n kube-system get deploy
+
+-kubectl -n kube-system get pods
+
+-kubectl -n kube-system logs -f <POD-NAME>
+
+
+-kubectl top pods -n kube-system
