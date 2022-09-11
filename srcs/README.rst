@@ -8,6 +8,7 @@ djangoproject.com source code
     :target: https://coveralls.io/r/django/djangoproject.com?branch=main
 
 To run locally, do the usual:
+To run locally, do the usual:
 
 #. Create a Python 3.8 virtualenv
 
